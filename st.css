@@ -1,0 +1,36 @@
+table {
+	border-collapse: collapse;
+	font-size: 60px;
+}
+table tr, th {
+	padding: 5px;
+	border: 3px solid black;
+}
+
+.ya1 {
+	background: red;
+}
+.ya2 {
+	background: orange;
+}
+.ya3 {
+	background: yellow;
+}
+.ya4 {
+	background: green;
+}
+.ya5 {
+	background: lightblue;
+}
+.ya6 {
+	background: blue;
+}
+.ya7 {
+	background: purple;
+}
+.ya8 {
+	background: chocolate;
+}
+.ya9 {
+	background: aqua;
+}
