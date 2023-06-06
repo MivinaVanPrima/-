@@ -1,20 +1,54 @@
-let s = '<table class="table">' + "\n"
-s +=	"<tbody>" + "\n"
-s +=	"<tr>" + "\n"
-	s += 	"<th>" + " " + "</th>"
-	for (var i = 1; i <= 10; i++) {
-		s += "<th>" + String(i) + "</th>" + "\n"
-	}
+function calc(){
+	a = document.getElementById("a").value
+	b = document.getElementById("b").value
+	c = document.getElementById("c").value
 
-	s += 	"</tr>" + "\n"
-	for (var i = 1; i <= 10; i++) {
-		s += '<tr class="ya' + String(i) + '">' + "\n"
-		s += "<th>" + String(i) + "</th>"
-		for (var j = 1; j <= 10; j++) {
-			s += "<th>" + String(i*j) + "</th>" + "\n"
+	let D = b*b - 4*a*c
+	if (a != 0 && b != 0){
+		if (D > 0){
+			D = Math.sqrt(D)
+			let x1 = (-b - D) / (2*a)
+			let x2 = (-b + D) / (2*a)
+			let s = "x1 = " + String(x1) + "<br>"
+			s += 	"x2 = " + String(x2)
+			res.innerHTML = s
 		}
-	s += 	"</tr>" + "\n"
+		else if (D == 0){
+			D = Math.sqrt(D)
+			let x = -b / (2*a)
+			let s = "x = " + String(x)
+			res.innerHTML = s
+		}
+		else if (D < 0){
+			let re = -b / 2 * a
+			let im = Math.sqrt(-1 * D)
+			let s = "x1 = " + String(re) + " + " + String(im) + "i" + "<br>"
+			s += 	"x2 = " + String(re) + " - " + String(im) + "i"
+			res.innerHTML = s
+		}
 	}
-s +=	"</tbody>" + "\n"
-s += 	"</table>"
-tb.innerHTML = s
+	else if (a != 0 && b == 0 && c != 0){
+		if (c < 0){
+			let x = -1 * c / a
+			x = Math.sqrt(x)
+			let s = "x1 = " + String(x) + "<br>"
+			x *= -1
+			s +=	"x2 = " + String(x)
+			res.innerHTML = s
+		}
+		else if (c > 0){
+			let x = c / a
+			x = Math.sqrt(x)
+			let s = "x1 = " + String(x) + "i" + "<br>"
+			x *= -1
+			s +=	"x2 = " + String(x) + "i"
+			res.innerHTML = s
+		}
+	}
+	else if (a != 0 && b == 0 && c == 0){
+		res.innerHTML = "x = 0"
+	}
+	else{
+		res.innerHTML = "No solution"
+	}
+}
